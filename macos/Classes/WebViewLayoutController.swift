@@ -9,6 +9,7 @@ import Cocoa
 import FlutterMacOS
 import WebKit
 
+@available(macOS 10.11, *)
 class WebViewLayoutController: NSViewController {
   private lazy var titleBarController: FlutterViewController = {
     let project = FlutterDartProject()
@@ -80,6 +81,7 @@ class WebViewLayoutController: NSViewController {
     ])
   }
 
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -91,7 +93,7 @@ class WebViewLayoutController: NSViewController {
     webView.configuration.preferences.minimumFontSize = 12
     webView.configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
     webView.configuration.allowsAirPlayForMediaPlayback = true
-    webView.configuration.mediaTypesRequiringUserActionForPlayback = .video
+//     webView.configuration.mediaTypesRequiringUserActionForPlayback = .video
 
     webView.addObserver(self, forKeyPath: "canGoBack", options: .new, context: nil)
     webView.addObserver(self, forKeyPath: "canGoForward", options: .new, context: nil)
